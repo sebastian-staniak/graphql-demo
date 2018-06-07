@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Infrastructure;
+
+message Price {
+  int32 amount = 1;
+}
+
+message PriceRequest {
+    int32 productId = 1;
+    string currency = 2;
+}
+
+service PricingService {
+  // Define a RPC operation
+  rpc calculate(PriceRequest) returns (Price);
+}

@@ -1,10 +1,22 @@
-type Link {
-  url: String!
-  description: String!
+type Product {
+  id: ID
+  price: Price!
+  title: String!
+  screenshots: [Screentshot]
+}
+
+type Screentshot {
+  href: String
+}
+
+type Price {
+  amount: String!
+  currency: String!
 }
 
 type Query {
-  allLinks: [Link]
+  products: [Product]
+  productsById(id: Int): [Product]
 }
 
 schema {
